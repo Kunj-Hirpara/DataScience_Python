@@ -21,19 +21,77 @@ print("Lowest temperature: ", np.min(patient))
 # ₹ Increase all salaries by
 # 10% and print the updated salaries.
 
+import numpy as np
 
+emp_sal = np.array([85000,70000,120000,50000,35000,20000])
+print("Before Increase: ", emp_sal)
+sal = emp_sal * 1.10
+print("After Increase: ", sal)
 
 # 4 A college library has 5 categories of books: Science, Arts, Commerce, Technology, and
 # Literature. Store the number of books in each category in an array and find the total books in
 # the library.
+
+import numpy as np
+
+books = np.array([50,45,65,70,25])
+print("Each categories of book: ", books)
+print("Total books in the library: ", np.sum(books))
+
 # 5 Store attendance (number of days present) for 12 students in a month (out of 30). Find how
 # many students attended more than 25 days.
+
+import numpy as np
+
+stu_attendance = np.array([25,29,28,15,10,12,15,20,9,10,5,2])
+print("12 student attendance for 1 month: ", stu_attendance)
+count = np.sum(stu_attendance > 25)
+print("More than 25 days student attendance: ", count)
+
 # 6 Create a 2D array (5×2) for 5 patients showing their systolic and diastolic blood pressure
 # readings. Print the 3rd patient’s readings.
+
+import numpy as np
+
+patient_record = np.array([
+    [120, 80],
+    [130, 85],
+    [140, 90],
+    [125, 82],
+    [135, 88]
+])
+print("3rd Patient reading: ", patient_record[2])
+
 # 7 A department recorded the number of research papers published by 4 faculty members over
 # 3 years. Store the data in a 4×3 NumPy array and print the total publications per faculty.
+
+import numpy as np
+
+papers = np.array([
+    [2, 3, 4],
+    [1, 2, 3],
+    [4, 3, 5],
+    [2, 4, 3]
+])
+print("Total publication per faculty: ", np.sum(papers, axis=1))
+
 # 8 An organization rated employees on a scale of 1 to 10 in 5 skill areas. Create a 2D array (4
 # employees × 5 skills) and calculate the average score per employee.
+
+import numpy as np
+
+skills = np.array([
+    [8, 7, 9, 8, 7],
+    [6, 8, 7, 9, 8],
+    [9, 9, 8, 9, 10],
+    [7, 6, 8, 7, 9]
+])
+print("Skill Ratings:")
+print(skills)
+
+avg = np.mean(skills, axis=1)
+print("Average score per employee: ", avg)
+
 # 9 Generate random marks for 15 students in the range 35–100. Print only those marks that are
 # above 75.
 # 10 Create a NumPy array showing the number of beds occupied in each of 7 wards of a
