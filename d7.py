@@ -94,16 +94,59 @@ print("Average score per employee: ", avg)
 
 # 9 Generate random marks for 15 students in the range 35–100. Print only those marks that are
 # above 75.
+
+import random
+
+stu_marks = np.random.randint(35,101,15)
+print("15 student marks: ", stu_marks)
+print("Above 75 marks: ", stu_marks[stu_marks > 75])
+
 # 10 Create a NumPy array showing the number of beds occupied in each of 7 wards of a
 # hospital. Find which ward has the maximum occupancy.
+
+import numpy as np
+
+beds = np.array([35, 42, 28, 50, 45, 38, 30])
+print("Beds Occupied:", beds)
+maximum = np.max(beds)
+ward = np.argmax(beds) + 1
+print("Maximum Occupancy:", maximum)
+print("Ward Number:", ward)
+
 # 11 A university gives an annual bonus of 20,000 to every faculty member. 
-# ₹
 # 6 faculty salaries and add the bonus to each salary.
 # Create an array of
+
+import numpy as np
+
+salary = np.array([45000, 50000, 55000, 60000, 65000, 70000])
+print("Original Salaries:", salary)
+
+salary = salary + 20000
+print("Salary After Bonus:", salary)
+
 # 12 Use np.arange() to create roll numbers for students from 101 to 120. Reshape it into a
 # 4×5 matrix and print it.
+
+import numpy as np
+
+rno = np.arange(101,121)
+print("Before change: ", rno)
+
+rno = rno.reshape(4,5)
+print("After change: \n", rno)
+
 # 13 Create an array for medicine dosages (in mg) for 8 patients. Any dosage below 50mg should
 # be replaced with 50.
+
+import numpy as np
+
+dosage = np.array([40, 60, 45, 80, 30, 55, 70, 35])
+print("Original Dosage:", dosage)
+
+dosage[dosage < 50] = 50
+print("Updated Dosage:", dosage)
+
 # 14 Store working hours of 7 employees for a week (in hours). Calculate the total and average
 # working hours.
 # 15 Create an array of marks for 10 students. Replace all marks below 40 with "Fail" and
