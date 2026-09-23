@@ -130,8 +130,45 @@ print("-------------------------------------------------------")
 # a) Find the average dosage.
 # b) Replace all dosages below 50mg with 50mg.
 # c) Print dosages for patients 3 to 7.
+
+import numpy as np
+
+dosage = np.array([40, 60, 75, 45, 80, 55, 30, 90, 65, 35])
+
+# a) Average dosage
+print("Average Dosage:", np.mean(dosage))
+
+# b) Replace below 50 with 50
+dosage[dosage < 50] = 50
+print("Updated Dosage:", dosage)
+
+# c) Patients 3 to 7
+print("Patients 3 to 7:", dosage[2:7])
+
+print("-------------------------------------------------------")
+
 # 7. Create an array of marks for 15 students.
 # Options:
 # a) Replace all marks below 40 with “Fail”.
 # b) Count how many students passed (marks ≥ 40).
 # c) Print the top 5 marks in sorted order.
+
+import numpy as np
+
+marks = np.array([
+    35, 78, 55, 90, 42,
+    30, 85, 67, 95, 38,
+    72, 88, 45, 60, 25
+])
+
+# a) Replace below 40 with Fail
+result = np.where(marks < 40, "Fail", marks)
+print("Result:", result)
+
+# b) Count students who passed
+passed = np.sum(marks >= 40)
+print("Students Passed:", passed)
+
+# c) Top 5 marks in sorted order
+sorted_marks = np.sort(marks)
+print("Top 5 Marks:", sorted_marks[-5:])
