@@ -26,6 +26,21 @@ print("-------------------------------------------------------")
 # b) Find the number of patients with temperature above 37.5°C.
 # c) Change all temperatures above 39°C to 39°C.
 
+import numpy as np
+
+temp = np.array([36.5, 37.2, 38.1, 39.2, 36.8, 37.8, 40.1, 38.5])
+
+print("Temperatures:", temp)
+
+print("Minimum Temperature:", np.min(temp))
+print("Maximum Temperature:", np.max(temp))
+
+print("Patients above 37.5°C:", np.sum(temp > 37.5))
+
+temp[temp > 39] = 39
+print("Updated Temperatures:", temp)
+
+print("-------------------------------------------------------")
 
 # 3. Store salaries of 6 employees in an array.
 # Options:
