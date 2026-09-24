@@ -157,14 +157,36 @@ print("======================================")
 # Full Name=['John Smith','Alice Johnson',None,'Bob Brown']
 # Split into first,last name, fill missing with 'Unknown'.
 
+import pandas as pd
 
+data = pd.DataFrame({
+    "Full Name": ['John Smith','Alice Johnson',None,'Bob Brown']
+})
+data["Full Name"] = data["Full Name"].fillna("Unknown Unknown")
+
+data[["First Name", "Last Name"]] = data["Full Name"].str.split(" ", n=1, expand=True)
+
+print(data)
+
+print("======================================")
 
 # 10. Data:
 # Customer=['A','B','C','D']
 # Age=[25,-5,0,40]
 # Replace invalid age (<=0) with mean of valid ages.
 
+import pandas as pd
 
+data = pd.DataFrame({
+    "Customer": ["A", "B", "C", "D"],
+    "Age": [25.0, -5.0, 0.0, 40.0]
+})
+valid_mean = data.loc[data["Age"] > 0, "Age"].mean()
+data.loc[data["Age"] <= 0, "Age"] = valid_mean
+
+print(data)
+
+print("======================================")
 
 # 11. Data:
 # Date=['2024-01-01','2024-02-01','2024-03-01']
