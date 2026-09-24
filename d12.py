@@ -192,21 +192,82 @@ print("======================================")
 # Date=['2024-01-01','2024-02-01','2024-03-01']
 # Convert Date to datetime format.
 
+import pandas as pd
 
+data = pd.DataFrame({
+    "Date": ["2024-01-01", "2024-02-01", "2024-03-01"]
+})
+data["Date"] = pd.to_datetime(data["Date"])
+
+print(data)
+print(data.dtypes)
+
+print("======================================")
 
 # 12. Data:
 # Product=['Laptop','Mobile','Tablet','Printer']
 # Price=[75000,30000,None,500000]
 # Remove outlier price>3*std, fill missing with mean.
 
+import pandas as pd
 
+data = pd.DataFrame({
+    "Product": ["Laptop", "Mobile", "Tablet", "Printer"],
+    "Price": [75000, 30000, None, 500000]
+})
+std = data["Price"].std()
+
+# Remove prices greater than 3 standard deviations
+data = data[data["Price"] <= 3 * std]
+
+# Fill missing price with mean
+data["Price"] = data["Price"].fillna(data["Price"].mean())
+
+print(data)
+
+print("======================================")
 
 # 13. Excel file employees.xlsx with Name,DOB columns.
 # Convert DOB to datetime, display age in years.
 
+# import pandas as pd
 
+# data = pd.read_excel("employees.xlsx")
+# data["DOB"] = pd.to_datetime(data["DOB"])
+
+# today = pd.Timestamp.today()
+
+# data["Age"] = (
+#     today.year
+#     - data["DOB"].dt.year
+#     - (
+#         (today.month, today.day)
+#         < (data["DOB"].dt.month, data["DOB"].dt.day)
+#     )
+# )
+
+# print(data)
+
+print("======================================")
 
 # 14. Data:
 # Name=['A','B','C']
 # Marks=[40,60,80]
 # Normalize Marks using min-max scaling between 0 and 1.
+
+import pandas as pd
+
+data = pd.DataFrame({
+    "Name": ["A", "B", "C"],
+    "Marks": [40, 60, 80]
+})
+
+min_marks = data["Marks"].min()
+max_marks = data["Marks"].max()
+
+data["Normalized Marks"] = (
+    (data["Marks"] - min_marks)
+    / (max_marks - min_marks)
+)
+
+print(data)
