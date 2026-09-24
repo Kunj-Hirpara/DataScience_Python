@@ -103,7 +103,20 @@ print("======================================")
 # 6. Assume 'products.csv' has columns Product,Price,Stock. Read CSV, display shape, top 5 rows 
 # and dtypes.
 
+import pandas as pd
 
+data = pd.read_csv("d12_product.csv")
+
+print("Shape:")
+print(data.shape)
+
+print("\nTop 5 Rows:")
+print(data.head(5))
+
+print("\nData Types:")
+print(data.dtypes)
+
+print("======================================")
 
 # 7. Data:
 # Product=['Pen','Notebook','Pencil']
