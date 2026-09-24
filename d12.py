@@ -16,11 +16,32 @@ print("Average Expenses: ", expenses.mean())
 print("Groceries: ", expenses["Groceries"])
 print("2nd Element: ", expenses.iloc[1])
 
+print("======================================")
+
 # 2. A company records weekly sales revenue: [15000, 18000, 21000, 19000]. 
 # Tasks: Create a Series with week labels ['Week1','Week2','Week3','Week4'], find maximum and 
 # minimum revenue weeks.
 
+import pandas as pd
 
+sales = pd.Series({
+    "Week1": 15000,
+    "Week2": 18000,
+    "Week3": 21000,
+    "Week4": 19000
+})
+print("Sales: \n", sales)
+
+max_week = sales.idxmax()
+min_week = sales.idxmin()
+
+print("Maximum Revenue:", sales.max())
+print("Maximum Revenue Week:", max_week)
+
+print("Minimum Revenue:", sales.min())
+print("Minimum Revenue Week:", min_week)
+
+print("======================================")
 
 # 3. Convert dictionary marks={'Math':35,'Science':48,'English':55,'History':42} into Series. 
 # Display subjects where marks < 50.
