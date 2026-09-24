@@ -123,14 +123,35 @@ print("======================================")
 # Price=[10,50,5]
 # Export DataFrame to Excel 'sales.xlsx'.
 
+import pandas as pd
 
+data = pd.DataFrame({
+    "Product": ['Pen','Notebook','Pencil'],
+    "Price": [10,50,5]
+})
+print(data)
+data.to_excel("d12_sales.xlsx", index = False)
+print("Data export successfully.")
+
+print("======================================")
 
 # 8. Data:
 # Name=['A','B','C','D']
 # Salary=[30000,None,40000,None]
 # Fill missing salary with mean.
 
+import pandas as pd
 
+data = pd.DataFrame({
+    "Name": ['A','B','C','D'],
+    "Salary": [30000,None,40000,None]
+})
+print("Before Fill missing value: \n", data)
+mean_salary = data["Salary"].mean()
+data["Salary"] = data["Salary"].fillna(mean_salary)
+print("After Fill missing value: \n", data)
+
+print("======================================")
 
 # 9. Data:
 # Full Name=['John Smith','Alice Johnson',None,'Bob Brown']
