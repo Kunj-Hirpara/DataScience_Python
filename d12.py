@@ -46,7 +46,20 @@ print("======================================")
 # 3. Convert dictionary marks={'Math':35,'Science':48,'English':55,'History':42} into Series. 
 # Display subjects where marks < 50.
 
+import pandas as pd
 
+marks = {
+    "Math": 35,
+    "Science": 48,
+    "English": 55,
+    "History": 42
+}
+data = pd.Series(marks)
+print("Data: \n", data)
+print("Subjects with less than 50 marks: ")
+print(data[data < 50])
+
+print("======================================")
 
 # 4. Create DataFrame for students:
 # Name=['Amit','Riya','John','Meena','Sam','Alok']
@@ -54,7 +67,20 @@ print("======================================")
 # Grade=['A','B','A','A','C','B']
 # Display top 4 rows and bottom 2 rows.
 
+import pandas as pd
 
+data = pd.DataFrame({
+    "Name": ['Amit','Riya','John','Meena','Sam','Alok'],
+    "Age": [15,16,15,17,14,16],
+    "Grade": ['A','B','A','A','C','B']
+})
+print("Top 4 Rows: ")
+print(data.head(4))
+
+print("Bottom 2 Rows: ")
+print(data.tail(2))
+
+print("======================================")
 
 # 5. Data:
 # Name=['Rahul','Neha','Alok','Priya']
@@ -62,7 +88,17 @@ print("======================================")
 # City=['Delhi','Mumbai','Delhi','Chennai']
 # Filter students older than 25 living in Delhi.
 
+import pandas as pd
 
+data = pd.DataFrame({
+    "Name": ['Rahul','Neha','Alok','Priya'],
+    "Age": [24,30,28,22],
+    "City": ['Delhi','Mumbai','Delhi','Chennai']
+})
+print(data)
+print("Older than 25: \n", data[(data["Age"] > 25) & (data["City"] == "Delhi")])
+
+print("======================================")
 
 # 6. Assume 'products.csv' has columns Product,Price,Stock. Read CSV, display shape, top 5 rows 
 # and dtypes.
