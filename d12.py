@@ -2,7 +2,19 @@
 # Entertainment=3000.  Tasks: Display total and average expenses. Access Groceries using label and 
 # 2nd element using index.
 
+import pandas as pd
 
+expenses = pd.Series({
+    "Rent": 12000,
+    "Groceries": 5000,
+    "Utilities": 2000,
+    "Entertainment": 3000
+})
+print("Expenses: \n", expenses)
+print("Total Expenses: ", expenses.sum())
+print("Average Expenses: ", expenses.mean())
+print("Groceries: ", expenses["Groceries"])
+print("2nd Element: ", expenses.iloc[1])
 
 # 2. A company records weekly sales revenue: [15000, 18000, 21000, 19000]. 
 # Tasks: Create a Series with week labels ['Week1','Week2','Week3','Week4'], find maximum and 
