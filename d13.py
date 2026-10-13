@@ -81,20 +81,63 @@ print("======================================")
 # Science=[50,30,70]
 # Filter students passed both subjects>=40.
 
+import pandas as pd
+
+data = pd.DataFrame({
+    "Name": ['A','B','C'],
+    "Math": [45,35,60],
+    "Science": [50,30,70]
+})
+print("Students passed both subjects: ")
+print(data[(data["Math"] >= 40) & (data["Science"] >= 40)])
+
+print("======================================")
 
 # 7. Country population:
 # {'India':1400,'USA':331,'Nepal':29,'Bhutan':0.8} (in millions)
 # Display countries with pop <50 million.
 
+import pandas as pd
+
+data = {
+    'India':1400,
+    'USA':331,
+    'Nepal':29,
+    'Bhutan':0.8
+}
+for country, pop in data.items():
+    if pop < 50:
+        print(country, pop)
+
+print("======================================")
 
 # 8. Movies CSV has Movie,Rating. Filter rating>4 and export to Excel.
 
+data = pd.read_csv("d13_movie.csv")
+
+filtered_movies = data[data["Rating"] > 4.0]
+print("Movies with rating > 4: \n", filtered_movies)
+print("Exporting filtered movies to Excel...")
+filtered_movies.to_excel("d13_filtered_movies.xlsx", index=False)
+
+print("======================================")
 
 # 9. Employees:
 # Name=['A','B','A']
 # Dept=['HR','IT','HR']
 # Remove duplicates.
 
+import pandas as pd
+
+data = pd.DataFrame({
+    "Name": ['A','B','A'],
+    "Dept": ['HR','IT','HR']
+})
+
+result = data.drop_duplicates()
+print("Employees after removing duplicates: \n", result)
+
+print("======================================")
 
 # 10. Exam scores:
 # [45,55,65,80,90]
