@@ -196,3 +196,12 @@ print("Grouped average sales by region: \n", result)
 print("======================================")
 
 # 14. Excel sales.xlsx with Date,Sales. Filter sales between '2024-01-01' and '2024-02-01'
+
+# import pandas as pd
+
+# data = pd.read_excel("d13_date_sales.xlsx")
+
+# data["Date"] = pd.to_datetime(data["Date"])
+
+# print("Sales between '2024-01-01' and '2024-02-01' :")
+# print(data[(data["Date"] >= '2024-01-01') & (data["Date"] <= '2024-02-01')])
