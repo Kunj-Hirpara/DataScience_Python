@@ -143,19 +143,56 @@ print("======================================")
 # [45,55,65,80,90]
 # Find how many scored above 75.
 
+import pandas as pd
+
+scores = pd.Series([45,55,65,80,90])
+count = (scores > 75).sum()
+print("Number of students scored above 75: ", count)
+
+print("======================================")
 
 # 11. Prices stored as strings:
 # ['100','200','300']
 # Convert to numeric.
 
+import pandas as pd
+
+prices = pd.Series(['100','200','300'])
+prices_numeric = pd.to_numeric(prices)
+print("Prices converted to numeric: \n", prices_numeric)
+
+print("======================================")
 
 # 12. Data:
 # Name=['A','B','C']
 # City=['Delhi',None,'Mumbai']
 # Fill missing city with Unknown, standardize lowercase.
 
+import pandas as pd
+
+data = pd.DataFrame({
+    "Name": ['A','B','C'],
+    "City": ['Delhi',None,'Mumbai']
+})
+
+data["City"] = data["City"].fillna("Unknown")
+data["City"] = data["City"].str.lower()
+print("Data after filling missing city and standardizing: \n", data)
+
+print("======================================")
 
 # 13. Sales data with Region,Amount. Group by region and display avg sales.
 
+import pandas as pd
+
+data = pd.DataFrame({
+    "Region": ['North','South','East','West','North','South'],
+    "Amount": [1000,1500,2000,2500,3000,3500]
+})
+
+result = data.groupby("Region")["Amount"].mean()
+print("Grouped average sales by region: \n", result)
+
+print("======================================")
 
 # 14. Excel sales.xlsx with Date,Sales. Filter sales between '2024-01-01' and '2024-02-01'
