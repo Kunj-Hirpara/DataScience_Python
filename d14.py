@@ -235,3 +235,35 @@ print(data)
 
 print("======================================")
 
+# 10. Split Name and Validate Email
+# A company stores employee contact data:
+# Full Name,Email
+# Alice Johnson,alice@abc.com
+# Bob Smith,bob@xyz.com
+# (missing),invalid_email
+# Charlie Brown,charlie@abc.com
+# Tasks:
+# • Fill missing names with "Unknown".
+# • Split Full Name into First Name and Last Name.
+# • Validate Email (if @ not present, replace with "Unknown").
+
+import pandas as pd
+
+data = pd.DataFrame({
+    "Full Name": ["Alice Johnson", "Bob Smith", None, "Charlie Brown"],
+    "Email": ["alice@abc.com", "bob@xyz.com", "invalid_email", "charlie@abc.com"]
+})
+
+# 1. Fill missing names with Unknown
+data["Full Name"] = data["Full Name"].fillna("Unknown")
+
+# 2. Split Full Name into First Name and Last Name
+data[["First Name", "Last Name"]] = data["Full Name"].str.split(
+    " ", n=1, expand=True
+)
+
+# 3. Validate Email
+data.loc[~data["Email"].str.contains("@", na=False), "Email"] = "Unknown"
+
+# 4. Display cleaned DataFrame
+print(data)
