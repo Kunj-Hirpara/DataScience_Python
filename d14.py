@@ -127,4 +127,38 @@ print("======================================")
 # print(data.head())
 # data.to_csv("products.csv", index=False)
 
+# print("======================================")
+
+# 7. Handle Missing and Invalid Data
+# A hospital stores patient data:
+# Patient,Age,Gender
+# A,30,M
+# B,-1,F
+# C,0,none
+# D,40,M
+# Tasks:
+# • Replace invalid ages (<=0) with the mean of valid ages.
+# • Replace missing/empty gender values with "Unknown".
+# • Display the cleaned DataFrame.
+
+import pandas as pd
+
+data = pd.DataFrame({
+    "Patient": ["A", "B", "C", "D"],
+    "Age": [30, -1, 0, 40],
+    "Gender": ["M", "F", None, "M"]
+})
+
+# 1. Calculate mean of valid ages
+valid_mean = data.loc[data["Age"] > 0, "Age"].mean()
+
+# 2. Replace invalid ages (<= 0) with mean
+data.loc[data["Age"] <= 0, "Age"] = valid_mean
+
+# 3. Replace missing/empty/none gender values with Unknown
+data["Gender"] = data["Gender"].fillna("Unknown")
+
+# 4. Display cleaned DataFrame
+print(data)
+
 print("======================================")
