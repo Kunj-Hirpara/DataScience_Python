@@ -258,9 +258,7 @@ data = pd.DataFrame({
 data["Full Name"] = data["Full Name"].fillna("Unknown")
 
 # 2. Split Full Name into First Name and Last Name
-data[["First Name", "Last Name"]] = data["Full Name"].str.split(
-    " ", n=1, expand=True
-)
+data[["First Name", "Last Name"]] = data["Full Name"].str.split(" ", n=1, expand=True)
 
 # 3. Validate Email
 data.loc[~data["Email"].str.contains("@", na=False), "Email"] = "Unknown"
