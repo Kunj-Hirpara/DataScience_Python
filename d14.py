@@ -162,3 +162,76 @@ data["Gender"] = data["Gender"].fillna("Unknown")
 print(data)
 
 print("======================================")
+
+# 8. Clean and Standardize Product Data
+# A supermarket has product data:
+# Product,Price,Stock
+# Laptop,75000,10
+# Mobile,30000,NaN
+# Tablet,NaN,30
+# Printer,500000,15
+# Tasks:
+# • Remove outlier products with price > 3*std above mean.
+# • Fill missing Price with its mean and Stock with its median.
+# • Display the cleaned dataset.
+
+import pandas as pd
+
+data = pd.DataFrame({
+    "Product": ["Laptop", "Mobile", "Tablet", "Printer"],
+    "Price": [75000, 30000, None, 500000],
+    "Stock": [10, None, 30, 15]
+})
+
+# 1. Calculate mean and standard deviation of Price
+mean_price = data["Price"].mean()
+std_price = data["Price"].std()
+
+# 2. Remove outliers (Price > mean + 3 * std)
+data = data[data["Price"].isna() | 
+            (data["Price"] <= mean_price + 3 * std_price)]
+
+# 3. Fill missing Price with mean
+data["Price"] = data["Price"].fillna(data["Price"].mean())
+
+# 4. Fill missing Stock with median
+data["Stock"] = data["Stock"].fillna(data["Stock"].median())
+
+# 5. Display cleaned dataset
+print(data)
+
+print("======================================")
+
+# 9. Date and Region Cleaning
+# A company records sales:
+# Date,Sales,Region
+# 2024-01-01,1000,North
+# 2024-01-05,2000,South
+# 2024-02-10,3000,East
+# Tasks:
+# • Convert Date to datetime format.
+# • Convert Sales to numeric (if stored as string).
+# • Standardize Region names (strip spaces, capitalize).
+
+import pandas as pd
+
+data = pd.DataFrame({
+    "Date": ["2024-01-01", "2024-01-05", "2024-02-10"],
+    "Sales": ["1000", "2000", "3000"],
+    "Region": [" North ", "south", " EAST "]
+})
+
+# 1. Convert Date to datetime
+data["Date"] = pd.to_datetime(data["Date"])
+
+# 2. Convert Sales to numeric
+data["Sales"] = pd.to_numeric(data["Sales"])
+
+# 3. Standardize Region names
+data["Region"] = data["Region"].str.strip().str.capitalize()
+
+# 4. Display cleaned DataFrame
+print(data)
+
+print("======================================")
+
