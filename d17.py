@@ -91,3 +91,33 @@ print(corr)
 print("\nTask 13: Employee(s) with Highest Salary")
 highest_salary = data[data["Salary"] == data["Salary"].max()]
 print(highest_salary)
+
+#14. Find the mean Salary per Department using .groupby().
+print("\nTask 14: Mean Salary per Department")
+mean_salary_per_department = data.groupby("Department")["Salary"].mean().round(2)
+print(mean_salary_per_department)
+
+#15. Find how many employees joined per year using groupby on Joining_Date.
+print("\nTask 15: Employees Joined per Year")
+data["Joining_Date"] = pd.to_datetime(data["Joining_Date"])
+print(data.groupby(data["Joining_Date"].dt.year).size())
+
+#16. Calculate average Salary per year and identify the year with the highest average salary.
+print("\nTask 16: Average Salary per Year")
+avg_salary_per_year = data.groupby(data["Joining_Date"].dt.year)["Salary"].mean()
+print(avg_salary_per_year)
+print("Year with Highest Average Salary:", avg_salary_per_year.idxmax())
+
+# Task 17: Fill Missing Values using Forward Fill
+print("\nTask 17: Forward Fill")
+ffill_data = data.copy()
+ffill_data = ffill_data.ffill()
+
+print(ffill_data)
+
+# Task 18: Fill Missing Values with Unknown
+print("\nTask 18: Fill Missing Values with Unknown")
+unknown_data = data.copy()
+unknown_data = unknown_data.fillna("Unknown")
+
+print(unknown_data)
