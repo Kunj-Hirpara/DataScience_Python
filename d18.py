@@ -199,6 +199,7 @@ plt.title("Employee Salary Distribution")
 plt.ylabel("Salary")
 plt.show()
 
+print("Task 9 Finish.")
 print("======================================")
 
 # Task 10: Price Spread by Category (Multiple Boxplots)
@@ -231,3 +232,5 @@ plt.title("Price Spread by Category")
 plt.xlabel("Category")
 plt.ylabel("Price")
 plt.show()
+
+print("Task 10 Finish.")
