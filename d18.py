@@ -19,6 +19,7 @@ plt.ylabel("Sales (Units)")
 plt.grid()
 plt.show()
 
+print("Task 1 Finish.")
 print("======================================")
 
 # Task 2: Product Category Sales (Bar Chart)
@@ -40,6 +41,7 @@ plt.xlabel("Categories")
 plt.ylabel("Sales (Units)")
 plt.show()
 
+print("Task 2 Finish.")
 print("======================================")
 
 # Task 3: Category Share (Pie Chart)
@@ -55,7 +57,8 @@ sales_units = [500, 700, 300, 400]
 plt.pie(sales_units, labels=categories, autopct="%.1f%%", explode=[0, 0.1, 0, 0], shadow=True)
 plt.title("Category Share in Total Sales")
 plt.show()
-          
+        
+print("Task 3 Finish.")  
 print("======================================")
 
 # Task 4: Product Sales Comparison (Multiple Line Plot)
@@ -82,6 +85,7 @@ plt.legend()
 plt.grid()
 plt.show()
 
+print("Task 4 Finish.")
 print("======================================")
 
 # Task 5: Time Series Sales (Line Plot with Dates)
@@ -104,6 +108,7 @@ plt.grid()
 plt.tight_layout()
 plt.show()
 
+print("Task 5 Finish.")
 print("======================================")
 
 # Task 6: Store Sales Comparison (Grouped Bar Chart)
@@ -134,6 +139,7 @@ plt.xticks(x, categories)
 plt.legend()
 plt.show()
 
+print("Task 6 Finish.")
 print("======================================")
 
 # Task 7: Exam Scores Distribution (Histogram)
@@ -153,6 +159,7 @@ plt.xlabel("Scores")
 plt.ylabel("Number of Students")
 plt.show()
 
+print("Task 7 Finish.")
 print("======================================")
 
 # Task 8: Item Count per Category (Countplot)
@@ -173,6 +180,7 @@ plt.xlabel("Category")
 plt.ylabel("Count")
 plt.show()
 
+print("Task 8 Finish.")
 print("======================================")
 
 # Task 9: Income Spread (Boxplot)
